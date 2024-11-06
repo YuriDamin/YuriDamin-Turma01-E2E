@@ -12,8 +12,18 @@
 Para executar este projeto, siga os passos abaixo:
 
 Instale o Node JS (versão >= 20.x)
+
+
 Execute npm i --save-dev para instalar todas as dependências do projeto
+
+
 Execute npx playwright install para instalar os navegadores usados pelo Playwright
+
+
 Execute npm run ci para executar toda a suíte de testes
+
+
 Execute npm run show-report para visualizar os relatórios
+
+
 Todos os artefatos de execução podem ser encontrados em ./artifacts. Caso queira remover esses arquivos, execute npm run clean
