@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { LoginPage } from '../support/pages/LoginPage';
 
 test.describe('OrangeHRM Login Test', () => {
   test('should login successfully with valid credentials', async ({ page }) => {
