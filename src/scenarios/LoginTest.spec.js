@@ -1,14 +1,19 @@
-import { test } from '@playwright/test';
-import { LoginPage } from '../support/pages/LoginPage';
+const { test, expect } = require('@playwright/test');
 
-test.describe('OrangeHRM Login Test', () => {
-  test('should login successfully with valid credentials', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+test('Teste de login no OrangeHRM', async ({ page }) => {
+  await page.goto(
+    'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+  );
 
-    await loginPage.navigate();
+  await page.fill('input[name="username"]', 'admin');
+  await page.fill('input[name="password"]', 'admin123');
 
-    await loginPage.login('Admin', 'admin123');
+  await page.click('button[type="submit"]');
 
-    await loginPage.verifyLoginSuccess();
-  });
+  await page.waitForURL(
+    'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index'
+  );
+
+  const dashboardElement = await page.isVisible('elemento_do_dashboard');
+  expect(dashboardElement).toBeTruthy();
 });
