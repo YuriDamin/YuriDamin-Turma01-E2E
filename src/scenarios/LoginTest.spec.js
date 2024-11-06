@@ -1,5 +1,5 @@
-const { test } = require('@playwright/test');
-const { LoginPage } = require('../pages/LoginPage');
+import { test } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
 
 test.describe('OrangeHRM Login Test', () => {
   test('should login successfully with valid credentials', async ({ page }) => {

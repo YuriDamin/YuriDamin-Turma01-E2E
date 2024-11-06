@@ -1,10 +1,12 @@
-const { expect } = require('@playwright/test');
+import { expect, Page } from '@playwright/test';
 
 class LoginPage {
-  /**
-   * @param {import('@playwright/test').Page} page
-   */
-  constructor(page) {
+  page: Page;
+  usernameInput;
+  passwordInput;
+  loginButton;
+
+  constructor(page: Page) {
     this.page = page;
     this.usernameInput = page.locator('#txtUsername');
     this.passwordInput = page.locator('#txtPassword');
@@ -15,7 +17,7 @@ class LoginPage {
     await this.page.goto('https://opensource-demo.orangehrmlive.com/');
   }
 
-  async login(username, password) {
+  async login(username: string, password: string) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
@@ -26,4 +28,4 @@ class LoginPage {
   }
 }
 
-module.exports = { LoginPage };
+export { LoginPage };
